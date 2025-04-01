@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE NEET ShortNotes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .notes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .note {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JEE NEET ShortNotes</h1>
+    <input type="text" class="search-bar" placeholder="Search notes..." onkeyup="searchNotes()">
+    <div class="notes-container" id="notes-container">
+        <div class="note" data-subject="Physics">Physics - Motion</div>
+        <div class="note" data-subject="Chemistry">Chemistry - Atomic Structure</div>
+        <div class="note" data-subject="Biology">Biology - Cell Theory</div>
+        <div class="note" data-subject="Math">Math - Calculus</div>
+    </div>
+    
+    <script>
+        function searchNotes() {
+            let input = document.querySelector('.search-bar').value.toLowerCase();
+            let notes = document.querySelectorAll('.note');
+            
+            notes.forEach(note => {
+                let text = note.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    note.style.display = "block";
+                } else {
+                    note.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
